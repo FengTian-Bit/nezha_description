@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="nezha_description">
+  <link
+    name="trunk_link">
+    <inertial>
+      <origin
+        xyz="0.0097117109800291 -0.00525627464822826 -0.0192016961853611"
+        rpy="0 0 0" />
+      <mass
+        value="44.5813071668691" />
+      <inertia
+        ixx="0.233715251696309"
+        ixy="0.00020507684970943"
+        ixz="-0.000286397092023406"
+        iyy="0.819140009122644"
+        iyz="0.00145609041052585"
+        izz="0.983900099657219" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/trunk_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.050 -0.039 -0.045"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="1.121 0.400 0.230" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="imu_fixed_joint">
+    <inertial>
+      <origin
+        xyz="-0.00391112286353751 4.6759053572501E-05 -0.00988104856351035"
+        rpy="0 0 0" />
+      <mass
+        value="0.317149482477396" />
+      <inertia
+        ixx="6.62700393762491E-05"
+        ixy="1.25080932738823E-08"
+        ixz="2.47362681608485E-07"
+        iyy="4.70829664870011E-05"
+        iyz="-6.38035704808032E-10"
+        izz="9.20394438938914E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/imu_fixed_joint.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="imu_fixed_joint"
+    type="fixed">
+    <origin
+      xyz="0.00112019201975541 -0.0364882468746482 0.0510999999999999"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="imu_fixed_joint" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="FL_hip_Link">
+    <inertial>
+      <origin
+        xyz="0.0481308758434225 0.031237411921266 -0.000178820738816809"
+        rpy="0 0 0" />
+      <mass
+        value="4.95777307433677" />
+      <inertia
+        ixx="0.007359084735518"
+        ixy="9.2084741196232E-06"
+        ixz="-5.41479669002336E-05"
+        iyy="0.00905576335336951"
+        iyz="-3.45085679226975E-05"
+        izz="0.00568945767210049" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/FL_hip_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="FL_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0.347120192019755 0.0485117531253507 -0.0290000000000001"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="FL_hip_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.7854"
+      upper="1.5533"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="FL_thigh_Link">
+    <inertial>
+      <origin
+        xyz="-0.00789152728440906 0.0231954085669646 -0.13534872873866"
+        rpy="0 0 0" />
+      <mass
+        value="3.76183569211295" />
+      <inertia
+        ixx="0.0451073093483587"
+        ixy="-1.55510741831772E-06"
+        ixz="-0.00269646684705478"
+        iyy="0.0482771079577287"
+        iyz="-1.22316362690701E-05"
+        izz="0.00375836763200595" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/FL_thigh_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="FL_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="0.0850000002315277 0.132499999999998 0"
+      rpy="0 0 0" />
+    <parent
+      link="FL_hip_Link" />
+    <child
+      link="FL_thigh_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.571"
+      upper="1.571"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="FL_calf_Link">
+    <inertial>
+      <origin
+        xyz="-0.000298930174633172 -0.0360468214801364 -0.231066279501091"
+        rpy="0 0 0" />
+      <mass
+        value="2.04680739068494" />
+      <inertia
+        ixx="0.0179701447590882"
+        ixy="1.4217010187377E-07"
+        ixz="9.8394383276419E-05"
+        iyy="0.0189697544277413"
+        iyz="5.91548462227387E-05"
+        izz="0.00117924531852517" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/FL_calf_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 -0.04 -0.170"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.06 0.390" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_calf_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.0619999999999968 -0.330000000000104"
+      rpy="0 0 0" />
+    <parent
+      link="FL_thigh_Link" />
+    <child
+      link="FL_calf_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.478"
+      upper="-0.768"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="FL_foot">
+    <inertial>
+      <origin
+        xyz="-5.47956237606506E-08 0.0223421202026282 -1.43132890262354E-09"
+        rpy="0 0 0" />
+      <mass
+        value="8.83568216072149" />
+      <inertia
+        ixx="0.0326100919299935"
+        ixy="2.059536962888E-09"
+        ixz="-4.28896163702452E-09"
+        iyy="0.062627271804759"
+        iyz="-6.79652953357635E-11"
+        izz="0.0326099829503154" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/FL_foot_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0.022 0"
+        rpy="1.5707963267948966 0 0" />
+      <geometry>
+        <cylinder length="0.040" radius="0.105" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_foot_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.0140000000000013 -0.329999999999984"
+      rpy="0 0 0" />
+    <parent
+      link="FL_calf_Link" />
+    <child
+      link="FL_foot" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-9999"
+      upper="9999"
+      effort="60"
+      velocity="100" />
+  </joint>
+  <link
+    name="FR_hip_Link">
+    <inertial>
+      <origin
+        xyz="0.0481308758434078 -0.0312374119212663 0.000178820738807151"
+        rpy="0 0 0" />
+      <mass
+        value="4.95777307433546" />
+      <inertia
+        ixx="0.00735908473551803"
+        ixy="-9.20847411961681E-06"
+        ixz="5.41479669002544E-05"
+        iyy="0.00905576335336956"
+        iyz="-3.4508567922699E-05"
+        izz="0.00568945767210055" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/FR_hip_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="FR_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0.34712 -0.12149 -0.029"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="FR_hip_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5533"
+      upper="0.7854"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="FR_thigh_Link">
+    <inertial>
+      <origin
+        xyz="-0.00792823378010465 -0.0232000692498877 -0.135244006919692"
+        rpy="0 0 0" />
+      <mass
+        value="3.76400910315758" />
+      <inertia
+        ixx="0.0450973379966484"
+        ixy="1.77100087312649E-06"
+        ixz="-0.00269076504849427"
+        iyy="0.0482641849881902"
+        iyz="1.26080258418607E-05"
+        izz="0.00375548649616189" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/FR_thigh_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="FR_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="0.0850000002315277 -0.132499999999998 0"
+      rpy="0 0 0" />
+    <parent
+      link="FR_hip_Link" />
+    <child
+      link="FR_thigh_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.571"
+      upper="1.571"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="FR_calf_Link">
+    <inertial>
+      <origin
+        xyz="-0.000395756832856642 0.0440509789333628 -0.174477985386167"
+        rpy="0 0 0" />
+      <mass
+        value="2.49104186855833" />
+      <inertia
+        ixx="0.0368512511682875"
+        ixy="-5.19290035519004E-08"
+        ixz="0.000169732088195987"
+        iyy="0.0379084013103881"
+        iyz="-6.75252408226386E-05"
+        izz="0.00117146878782971" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/FR_calf_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0.05 -0.170"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.06 0.390" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_calf_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.0619999999999982 -0.329999999999805"
+      rpy="0 0 0" />
+    <parent
+      link="FR_thigh_Link" />
+    <child
+      link="FR_calf_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.478"
+      upper="-0.768"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="FR_foot">
+    <inertial>
+      <origin
+        xyz="5.47994326027812E-08 -0.0223421202039215 -1.43541313557538E-09"
+        rpy="0 0 0" />
+      <mass
+        value="8.835682161799" />
+      <inertia
+        ixx="0.0326100919327111"
+        ixy="2.05981956793858E-09"
+        ixz="4.29123858577254E-09"
+        iyy="0.0626272718074757"
+        iyz="6.76314919727173E-11"
+        izz="0.0326099829526871" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/FR_foot_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 -0.022 0"
+        rpy="1.5707963267948966 0 0" />
+      <geometry>
+        <cylinder length="0.040" radius="0.105" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_foot_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.0191743224506925 -0.329999999987678"
+      rpy="0 0 0" />
+    <parent
+      link="FR_calf_Link" />
+    <child
+      link="FR_foot" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-9999"
+      upper="9999"
+      effort="60"
+      velocity="100" />
+  </joint>
+  <link
+    name="RL_hip_Link">
+    <inertial>
+      <origin
+        xyz="-0.0481308758426632 0.0312374119208174 0.000178820738833574"
+        rpy="0 0 0" />
+      <mass
+        value="4.95777307436682" />
+      <inertia
+        ixx="0.00735908473551868"
+        ixy="-9.20847411963166E-06"
+        ixz="-5.41479669001815E-05"
+        iyy="0.00905576335337011"
+        iyz="3.45085679229245E-05"
+        izz="0.00568945767210076" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/RL_hip_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="RL_hip_joint"
+    type="revolute">
+    <origin
+      xyz="-0.34488 0.048512 -0.029"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="RL_hip_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.7854"
+      upper="1.5533"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="RL_thigh_Link">
+    <inertial>
+      <origin
+        xyz="0.00792940184602209 0.0232000692498988 -0.135243938440513"
+        rpy="0 0 0" />
+      <mass
+        value="3.76400910317075" />
+      <inertia
+        ixx="0.0450972915147272"
+        ixy="1.77110976416682E-06"
+        ixz="0.0026911221065521"
+        iyy="0.0482641849881934"
+        iyz="-1.26080105434088E-05"
+        izz="0.0037555329780878" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/RL_thigh_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="RL_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0850000002315277 0.132499999999998 0"
+      rpy="0 0 0" />
+    <parent
+      link="RL_hip_Link" />
+    <child
+      link="RL_thigh_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.571"
+      upper="1.571"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="RL_calf_Link">
+    <inertial>
+      <origin
+        xyz="0.000386004912476312 -0.0440626375678176 -0.175092237974855"
+        rpy="0 0 0" />
+      <mass
+        value="2.48364340590704" />
+      <inertia
+        ixx="0.0368510203687876"
+        ixy="-5.25103185137994E-08"
+        ixz="-0.000169423925155194"
+        iyy="0.037907938835034"
+        iyz="6.75252339517174E-05"
+        izz="0.0011712321807454" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/RL_calf_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 -0.05 -0.170"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.06 0.390" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_calf_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.0619999999999982 -0.329999999987498"
+      rpy="0 0 0" />
+    <parent
+      link="RL_thigh_Link" />
+    <child
+      link="RL_calf_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.768"
+      upper="2.478"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="RL_foot">
+    <inertial>
+      <origin
+        xyz="-5.47956238161618E-08 0.0223421202026282 -1.43132586338801E-09"
+        rpy="0 0 0" />
+      <mass
+        value="8.83568216072149" />
+      <inertia
+        ixx="0.0326100919299935"
+        ixy="2.05953684317548E-09"
+        ixz="-4.28896162889752E-09"
+        iyy="0.0626272718047589"
+        iyz="-6.79651576964532E-11"
+        izz="0.0326099829503154" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/RL_foot_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0.022 0"
+        rpy="1.5707963267948966 0 0" />
+      <geometry>
+        <cylinder length="0.040" radius="0.105" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_foot_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.0191743224506925 -0.329999999999986"
+      rpy="0 0 0" />
+    <parent
+      link="RL_calf_Link" />
+    <child
+      link="RL_foot" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-9999"
+      upper="9999"
+      effort="60"
+      velocity="100" />
+  </joint>
+  <link
+    name="RR_hip_Link">
+    <inertial>
+      <origin
+        xyz="-0.0481308758426749 -0.0312374119208027 -0.000178820738822361"
+        rpy="0 0 0" />
+      <mass
+        value="4.95777307436896" />
+      <inertia
+        ixx="0.00735908473551881"
+        ixy="9.20847411964646E-06"
+        ixz="5.41479669002005E-05"
+        iyy="0.00905576335337035"
+        iyz="3.4508567922934E-05"
+        izz="0.0056894576721009" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/RR_hip_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="RR_hip_joint"
+    type="revolute">
+    <origin
+      xyz="-0.344879807980245 -0.121488246874649 -0.0290000000000001"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="RR_hip_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5533"
+      upper="0.7854"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="RR_thigh_Link">
+    <inertial>
+      <origin
+        xyz="0.00789269587070718 -0.0231954085669464 -0.135348660048965"
+        rpy="0 0 0" />
+      <mass
+        value="3.76183569211572" />
+      <inertia
+        ixx="0.045107262767927"
+        ixy="-1.5552130589958E-06"
+        ixz="0.00269682396637"
+        iyy="0.0482771079577102"
+        iyz="1.22316228381288E-05"
+        izz="0.00375841421241886" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/RR_thigh_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+  </link>
+  <joint
+    name="RR_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0850000002315277 -0.132499999999998 0"
+      rpy="0 0 0" />
+    <parent
+      link="RR_hip_Link" />
+    <child
+      link="RR_thigh_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.571"
+      upper="1.571"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="RR_calf_Link">
+    <inertial>
+      <origin
+        xyz="0.000392106809710135 0.0482554129761137 -0.193054540786499"
+        rpy="0 0 0" />
+      <mass
+        value="1.45901720310113" />
+      <inertia
+        ixx="0.0174773987392325"
+        ixy="1.37149189677392E-07"
+        ixz="-9.80221849379599E-05"
+        iyy="0.0180881558682737"
+        iyz="-5.92010373867024E-05"
+        izz="0.000685825481739598" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/RR_calf_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0.05 -0.170"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.06 0.390" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_calf_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.0619999999999969 -0.329999999460342"
+      rpy="0 0 0" />
+    <parent
+      link="RR_thigh_Link" />
+    <child
+      link="RR_calf_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.768"
+      upper="2.478"
+      effort="300"
+      velocity="30" />
+  </joint>
+  <link
+    name="RR_foot">
+    <inertial>
+      <origin
+        xyz="5.47956399143956E-08 -0.0223421202026284 -1.4308530471574E-09"
+        rpy="0 0 0" />
+      <mass
+        value="8.83568216072149" />
+      <inertia
+        ixx="0.0326100919299194"
+        ixy="2.05953639786105E-09"
+        ixz="4.28990285591274E-09"
+        iyy="0.062627271804759"
+        iyz="6.7983045321868E-11"
+        izz="0.0326099829503895" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nezha_description/meshes/RR_foot_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 -0.022 0"
+        rpy="1.5707963267948966 0 0" />
+      <geometry>
+        <cylinder length="0.040" radius="0.105" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_foot_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.0140000000000008 -0.329999999987677"
+      rpy="0 0 0" />
+    <parent
+      link="RR_calf_Link" />
+    <child
+      link="RR_foot" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-9999"
+      upper="9999"
+      effort="60"
+      velocity="100" />
+  </joint>
+</robot>
