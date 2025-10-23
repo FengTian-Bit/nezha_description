@@ -36,13 +36,89 @@
     </visual>
     <collision>
       <origin
-        xyz="0.050 -0.039 -0.045"
+        xyz="0.000 -0.0375 -0.038"
         rpy="0 0 0" />
       <geometry>
-        <box size="1.121 0.400 0.230" />
+        <box size="0.710 0.380 0.190" />
       </geometry>
     </collision>
   </link>
+
+  <link
+    name="lidar_link">
+    <collision>
+      <origin
+        xyz="0 0 -0.02"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.11 0.10 0.15" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0.55 -0.0375 0.07"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="lidar_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+  <link
+    name="upboard_link">
+    <collision>
+      <origin
+        xyz="0 0 -0.02"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.11 0.10 0.009" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="upboard_joint"
+    type="fixed">
+    <origin
+      xyz="0.42 -0.0375 0.085"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="upboard_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="downboard_link">
+    <collision>
+      <origin
+        xyz="0 0 -0.02"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.11 0.10 0.009" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="downboard_joint"
+    type="fixed">
+    <origin
+      xyz="0.42 -0.0375 -0.105"
+      rpy="0 0 0" />
+    <parent
+      link="trunk_link" />
+    <child
+      link="downboard_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
   <link
     name="imu_fixed_joint">
     <inertial>
@@ -117,6 +193,12 @@
           rgba="1 1 1 1" />
       </material>
     </visual>
+    <collision>
+      <origin xyz="0.082 0.035 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.0625" length="0.165" />
+      </geometry>
+    </collision>
   </link>
   <joint
     name="FL_hip_joint"
@@ -166,6 +248,14 @@
           rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
+    <collision>
+      <origin
+        xyz="-0.015 0.025 -0.100"
+        rpy="0 0.18 0" />
+      <geometry>
+        <box size="0.120 0.050 0.320" />
+      </geometry>
+    </collision>
   </link>
   <joint
     name="FL_thigh_joint"
@@ -216,11 +306,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 -0.04 -0.170"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="0.05 0.06 0.390" />
+      <origin xyz="0 0 0" rpy="0 0 0" /> 
+      <geometry> 
+        <mesh filename="package://nezha_description/meshes/FL_calf_Link.STL" /> 
       </geometry>
     </collision>
   </link>
@@ -274,10 +362,11 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0.022 0"
-        rpy="1.5707963267948966 0 0" />
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <cylinder length="0.040" radius="0.105" />
+        <mesh
+          filename="package://nezha_description/meshes/FL_foot_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -329,6 +418,12 @@
           rgba="1 1 1 1" />
       </material>
     </visual>
+    <collision>
+      <origin xyz="0.082 -0.035 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.0625" length="0.165" />
+      </geometry>
+    </collision>
   </link>
   <joint
     name="FR_hip_joint"
@@ -378,6 +473,14 @@
           rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
+    <collision>
+      <origin
+        xyz="-0.015 -0.025 -0.100"
+        rpy="0 0.18 0" />
+      <geometry>
+        <box size="0.120 0.050 0.320" />
+      </geometry>
+    </collision>
   </link>
   <joint
     name="FR_thigh_joint"
@@ -428,11 +531,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0.05 -0.170"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="0.05 0.06 0.390" />
+      <origin xyz="0 0 0" rpy="0 0 0" /> 
+      <geometry> 
+        <mesh filename="package://nezha_description/meshes/FR_calf_Link.STL" /> 
       </geometry>
     </collision>
   </link>
@@ -486,10 +587,11 @@
     </visual>
     <collision>
       <origin
-        xyz="0 -0.022 0"
-        rpy="1.5707963267948966 0 0" />
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <cylinder length="0.040" radius="0.105" />
+        <mesh
+          filename="package://nezha_description/meshes/FR_foot_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -541,6 +643,12 @@
           rgba="1 1 1 1" />
       </material>
     </visual>
+    <collision>
+      <origin xyz="-0.082 0.035 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.0625" length="0.165" />
+      </geometry>
+    </collision>
   </link>
   <joint
     name="RL_hip_joint"
@@ -590,6 +698,14 @@
           rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
+    <collision>
+      <origin
+        xyz="0.015 0.025 -0.100"
+        rpy="0 -0.18 0" />
+      <geometry>
+        <box size="0.120 0.050 0.320" />
+      </geometry>
+    </collision>
   </link>
   <joint
     name="RL_thigh_joint"
@@ -640,11 +756,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 -0.05 -0.170"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="0.05 0.06 0.390" />
+      <origin xyz="0 0 0" rpy="0 0 0" /> 
+      <geometry> 
+        <mesh filename="package://nezha_description/meshes/RL_calf_Link.STL" /> 
       </geometry>
     </collision>
   </link>
@@ -698,10 +812,11 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0.022 0"
-        rpy="1.5707963267948966 0 0" />
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <cylinder length="0.040" radius="0.105" />
+        <mesh
+          filename="package://nezha_description/meshes/RL_foot_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -753,6 +868,12 @@
           rgba="1 1 1 1" />
       </material>
     </visual>
+    <collision>
+      <origin xyz="-0.082 -0.035 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.0625" length="0.165" />
+      </geometry>
+    </collision>
   </link>
   <joint
     name="RR_hip_joint"
@@ -802,6 +923,14 @@
           rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
+    <collision>
+      <origin
+        xyz="0.015 -0.025 -0.100"
+        rpy="0 -0.18 0" />
+      <geometry>
+        <box size="0.120 0.050 0.320" />
+      </geometry>
+    </collision>
   </link>
   <joint
     name="RR_thigh_joint"
@@ -852,11 +981,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0.05 -0.170"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="0.05 0.06 0.390" />
+      <origin xyz="0 0 0" rpy="0 0 0" /> 
+      <geometry> 
+        <mesh filename="package://nezha_description/meshes/RR_calf_Link.STL" /> 
       </geometry>
     </collision>
   </link>
@@ -910,10 +1037,11 @@
     </visual>
     <collision>
       <origin
-        xyz="0 -0.022 0"
-        rpy="1.5707963267948966 0 0" />
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <cylinder length="0.040" radius="0.105" />
+        <mesh
+          filename="package://nezha_description/meshes/RR_foot_Link.STL" />
       </geometry>
     </collision>
   </link>
